@@ -11,7 +11,7 @@
     data-voice-agent-id="agent_26eb841c698e260d0af327617b"
     data-title="Fusion Car Wrap"
     data-color="#dc2626"
-    data-fab-text="Talk to Us"
+    data-fab-text="Try AI Demo"
     data-bot-name="Fusion Car Wrap AI Receptionist"
     data-greeting-message="Hey! Thanks for calling Fusion Car Wrap. I can help you get a quote, book an appointment, or answer questions about our wraps, PPF, or ceramic coatings. What can I help you with?"
   ></script>
@@ -263,5 +263,18 @@
   </footer>
 
 </div>
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var btn = document.querySelector('retell-widget')
+        || document.querySelector('[id="retell-widget-button"]')
+        || document.querySelector('button[class*="retell"]');
+      if (btn) btn.click();
+      // fallback: try the fab button directly
+      var fab = document.querySelector('button[class*="fab"], button[class*="Fab"], .retell-fab, [class*="retell-btn"]');
+      if (fab) fab.click();
+    }, 1500);
+  });
+</script>
 </body>
 </html>
