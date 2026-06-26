@@ -95,75 +95,118 @@
     /* ── BODY ── */
     .page-body {
       height: calc(100vh - 62px - 36px);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      background: var(--dark);
-      padding: 16px 20px;
-      gap: 14px;
-    }
-
-    /* ── LEFT COLUMN ── */
-    .left-col {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 22px 24px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      justify-content: center;
+      background: var(--dark);
+      padding: 20px 28px;
+      gap: 12px;
     }
+
+    /* ── MAIN CARD (horizontal strip) ── */
+    .main-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    /* Brand block */
+    .brand-block { flex-shrink: 0; }
 
     .headline {
       font-family: 'Raleway', sans-serif;
       font-weight: 900;
-      font-size: 1.5rem;
-      line-height: 1.2;
+      font-size: 1.25rem;
+      line-height: 1.15;
       color: var(--dark);
     }
 
     .headline span { color: var(--accent); }
 
     .tagline-p {
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       color: var(--muted);
-      line-height: 1.5;
+      margin-top: 4px;
+      max-width: 200px;
     }
 
-    .features { display: flex; flex-direction: column; gap: 7px; }
+    .divider { width: 1px; background: #e5e7eb; align-self: stretch; flex-shrink: 0; }
+
+    /* Features */
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
 
     .feature-item {
       display: flex;
-      align-items: flex-start;
-      gap: 9px;
-      font-size: 0.78rem;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.73rem;
       color: var(--text);
-      line-height: 1.4;
+      white-space: nowrap;
     }
 
     .feature-icon {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       background: rgba(220,38,38,0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      margin-top: 1px;
     }
 
-    .feature-icon svg { width: 10px; height: 10px; fill: var(--accent); }
-
+    .feature-icon svg { width: 9px; height: 9px; fill: var(--accent); }
     .feature-item strong { color: var(--dark); }
 
-    .chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+    /* Services inline */
+    .services-col { flex-shrink: 0; display: flex; flex-direction: column; gap: 5px; }
+
+    .service-tile {
+      background: var(--dark);
+      border-radius: 6px;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-width: 160px;
+    }
+
+    .service-icon {
+      width: 20px;
+      height: 20px;
+      background: rgba(220,38,38,0.15);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .service-icon svg { width: 11px; height: 11px; fill: var(--accent); }
+
+    .service-name {
+      font-size: 0.66rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    /* Chip row */
+    .chip-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
 
     .chip {
       background: #f3f4f6;
       color: var(--muted);
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       font-weight: 600;
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: 20px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -171,116 +214,60 @@
 
     .chip.accent { background: rgba(220,38,38,0.1); color: var(--accent); }
 
-    /* ── RIGHT COLUMN ── */
-    .right-col {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    /* Services grid */
-    .services-grid {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 16px 18px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-
-    .service-tile {
-      background: var(--dark);
-      border-radius: 8px;
-      padding: 10px 11px;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
-
-    .service-icon {
-      width: 28px;
-      height: 28px;
-      background: rgba(220,38,38,0.15);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .service-icon svg { width: 15px; height: 15px; fill: var(--accent); }
-
-    .service-name {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.2;
-    }
-
-    /* CTA box */
-    .cta-box {
+    /* ── CTA STRIP ── */
+    .cta-strip {
       background: var(--dark2);
       border: 1px solid #2a2a2a;
       border-radius: 12px;
-      padding: 14px 18px;
-      position: relative;
-      overflow: hidden;
-      flex: 1;
+      padding: 14px 24px;
       display: flex;
-      flex-direction: column;
-      gap: 8px;
+      align-items: center;
+      gap: 20px;
+      position: relative;
     }
 
     .cta-label {
       font-family: 'Raleway', sans-serif;
       font-weight: 900;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.1em;
+      white-space: nowrap;
     }
 
     .cta-text {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: #9ca3af;
-      line-height: 1.5;
-    }
-
-    .arrow-bounce {
-      position: absolute;
-      bottom: 14px;
-      right: 18px;
-      animation: bounce-diag 1.4s ease-in-out infinite;
-    }
-
-    .arrow-bounce svg { width: 28px; height: 28px; fill: var(--accent); }
-
-    @keyframes bounce-diag {
-      0%, 100% { transform: translate(0, 0); opacity: 1; }
-      50% { transform: translate(5px, 5px); opacity: 0.6; }
-    }
-
-    .try-box {
-      background: var(--white);
-      border-radius: 10px;
-      padding: 11px 14px;
-      border-left: 3px solid var(--accent);
+      line-height: 1.4;
     }
 
     .try-label {
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--accent);
-      margin-bottom: 4px;
+      white-space: nowrap;
     }
 
     .try-text {
-      font-size: 0.72rem;
-      color: var(--muted);
+      font-size: 0.68rem;
+      color: #6b7280;
       font-style: italic;
-      line-height: 1.4;
+      max-width: 340px;
+    }
+
+    .arrow-bounce {
+      animation: bounce-diag 1.4s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    .arrow-bounce svg { width: 26px; height: 26px; fill: var(--accent); }
+
+    @keyframes bounce-diag {
+      0%, 100% { transform: translate(0, 0); opacity: 1; }
+      50% { transform: translate(-5px, 5px); opacity: 0.6; }
     }
 
     /* ── FOOTER ── */
@@ -357,48 +344,51 @@
 <!-- PAGE BODY -->
 <div class="page-body">
 
-  <!-- LEFT COLUMN -->
-  <div class="left-col">
-    <h2 class="headline">Your <span>AI Receptionist</span><br>Ready 24/7</h2>
-    <p class="tagline-p">Fusion Car Wrap's AI handles calls, answers questions, and books consultations — even after hours. Never miss a lead again.</p>
+  <!-- MAIN CARD -->
+  <div class="main-card">
 
+    <!-- Brand block -->
+    <div class="brand-block">
+      <h2 class="headline">Your <span>AI</span><br><span>Receptionist</span><br>Ready 24/7</h2>
+      <p class="tagline-p">Never miss a lead — even after hours.</p>
+      <div class="chip-row">
+        <span class="chip accent">Car Wraps</span>
+        <span class="chip accent">PPF</span>
+        <span class="chip">Bilingual EN/ES</span>
+        <span class="chip">24/7</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Features -->
     <div class="features">
       <div class="feature-item">
         <div class="feature-icon"><svg><use href="#icon-check"/></svg></div>
-        <span><strong>Instant quotes</strong> — answers pricing questions for full wraps, partial wraps, PPF &amp; tints</span>
+        <span><strong>Instant quotes</strong> — full wraps, PPF &amp; tints</span>
       </div>
       <div class="feature-item">
         <div class="feature-icon"><svg><use href="#icon-check"/></svg></div>
-        <span><strong>Book consultations</strong> — schedules appointments without any staff involvement</span>
+        <span><strong>Book consultations</strong> — no staff needed</span>
       </div>
       <div class="feature-item">
         <div class="feature-icon"><svg><use href="#icon-check"/></svg></div>
-        <span><strong>24/7 availability</strong> — captures leads at night, on weekends, and during busy hours</span>
+        <span><strong>24/7 availability</strong> — nights &amp; weekends</span>
       </div>
       <div class="feature-item">
         <div class="feature-icon"><svg><use href="#icon-check"/></svg></div>
-        <span><strong>Handles objections</strong> — explains wrap durability, care instructions, and warranty info</span>
+        <span><strong>Handles objections</strong> — durability, warranty, care</span>
       </div>
       <div class="feature-item">
         <div class="feature-icon"><svg><use href="#icon-check"/></svg></div>
-        <span><strong>Lead capture</strong> — collects name, vehicle info, and service interest every call</span>
+        <span><strong>Lead capture</strong> — name, vehicle &amp; service interest</span>
       </div>
     </div>
 
-    <div class="chip-row">
-      <span class="chip accent">Car Wraps</span>
-      <span class="chip accent">PPF</span>
-      <span class="chip">Ceramic Coating</span>
-      <span class="chip">Bilingual EN / ES</span>
-      <span class="chip">24/7</span>
-    </div>
-  </div>
+    <div class="divider"></div>
 
-  <!-- RIGHT COLUMN -->
-  <div class="right-col">
-
-    <!-- Services grid -->
-    <div class="services-grid">
+    <!-- Services col -->
+    <div class="services-col">
       <div class="service-tile">
         <div class="service-icon"><svg><use href="#icon-car"/></svg></div>
         <div class="service-name">Full Vehicle Wraps</div>
@@ -425,22 +415,24 @@
       </div>
     </div>
 
-    <!-- CTA Box -->
-    <div class="cta-box">
-      <div class="cta-label">Try the Demo</div>
-      <div class="cta-text">Click <strong style="color:#e5e7eb;">"Talk to Us"</strong> in the bottom-right corner to speak with Fusion Car Wrap's AI receptionist live.</div>
-      <div class="arrow-bounce">
-        <svg><use href="#icon-arrow-diag"/></svg>
-      </div>
-    </div>
-
-    <!-- What to try -->
-    <div class="try-box">
-      <div class="try-label">What to try</div>
-      <div class="try-text">"Hey, I have a 2022 Mustang GT and I'm interested in a matte black full wrap — how much would that run and how long does it take?"</div>
-    </div>
-
   </div>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <div class="arrow-bounce">
+      <svg style="transform:scaleX(-1) rotate(90deg)"><use href="#icon-arrow-diag"/></svg>
+    </div>
+    <div>
+      <div class="cta-label">Try the Demo</div>
+      <div class="cta-text">Click <strong style="color:#e5e7eb;">"Talk to Us"</strong> in the bottom-left corner to speak with Fusion Car Wrap's AI receptionist live.</div>
+    </div>
+    <div class="divider" style="height:36px;"></div>
+    <div>
+      <div class="try-label">What to try</div>
+      <div class="try-text">"I have a 2022 Mustang GT — how much for a matte black full wrap and how long does it take?"</div>
+    </div>
+  </div>
+
 </div>
 
 <!-- FOOTER -->
